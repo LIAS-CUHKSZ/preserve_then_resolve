@@ -1,0 +1,27 @@
+experiment: q1_fixed_proposal_nested_k
+paper_scope: Q1 and Figure 5
+representation:
+  model: dinov3_vitl16
+  weights_sha256: 8aa4cbddda325040fc78db2c272754af6ebe8ff2c55f6ec4f1964d8890f66035
+  layer: 19
+  positional_debias_rank: 200
+association:
+  nested_k: [1, 2, 3, 4, 5]
+  association_upperbound: 0
+  gms: false
+estimation:
+  mode: HCM_MC
+  proposal_graph: E1
+  scoring_refinement_reranking_graph: EK
+  max_matching_num: 0
+  q_ub: 0.3
+  m2m_delta: 0.01
+  max_error_px: 1.0
+  top_n_candidates: 100
+  min_iterations: 100000
+  max_iterations: 100000
+  seeds: [0, 1, 2, 3, 4]
+reference_hypothesis_probe:
+  enabled: true
+  read_only: true
+  enters_estimator_decision: false

@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "Preserve, Then Resolve"
+type: software
+authors:
+  - family-names: Jiang
+    given-names: Haodong
+  - family-names: Li
+    given-names: Mingzhe
+  - family-names: Wu
+    given-names: Junfeng
+repository-code: "https://github.com/LIAS-CUHKSZ/preserve_then_resolve"
+license: BSD-3-Clause
+version: 0.1.0
+date-released: 2026-08-30
+preferred-citation:
+  type: article
+  title: "Preserve, Then Resolve: Many-to-Many Association and Robust Estimation with General-Purpose Visual Features"
+  authors:
+    - family-names: Jiang
+      given-names: Haodong
+    - family-names: Li
+      given-names: Mingzhe
+    - family-names: Wu
+      given-names: Junfeng
+  year: 2026
+  identifiers:
+    - type: other
+      value: "arXiv:2604.23670"
+  url: "https://arxiv.org/abs/2604.23670"

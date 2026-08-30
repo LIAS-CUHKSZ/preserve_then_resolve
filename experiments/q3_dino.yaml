@@ -1,0 +1,34 @@
+experiment: q3_dino_representation_transfer
+paper_scope: first two panels of Figure 7
+representations:
+  corrected_dinov3:
+    model: dinov3_vitl16
+    weights_sha256: 8aa4cbddda325040fc78db2c272754af6ebe8ff2c55f6ec4f1964d8890f66035
+    layer: 19
+    positional_debias_rank: 200
+  raw_dinov2:
+    model: dinov2_vitl14_reg
+    weights_sha256: 36e4deffbaef061a2576705b0c36f93621e2ae20bf6274694821b0b492551b51
+    layer: 24
+    correction: none
+    rank: 0
+association:
+  baseline: mnn
+  proposed: gms:4:20
+  progressive_k: 5
+  association_upperbound: 2048
+gms:
+  threshold_factor: 4.0
+  grid_size: 20
+  auto_mask: true
+  with_scale: true
+  with_rotation: true
+estimation:
+  pipelines: [mnn:CM, gms:4:20:HCM_MC]
+  max_matching_num: 1024
+  q_ub: 0.3
+  m2m_delta: 0.01
+  max_error_px: 1.0
+  min_iterations: 1000
+  max_iterations: 100000
+  seeds: [0, 1, 2, 3, 4]

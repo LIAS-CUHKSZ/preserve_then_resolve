@@ -1,0 +1,174 @@
+{
+  "algorithm": {
+    "angle_subbin_degrees": 5,
+    "balanced_pair_orientation": true,
+    "capacity_slack": 4,
+    "joint_selection_soft_objectives": [
+      "same_vs_cross_camera_pair_balance",
+      "unordered_camera_pair_histogram_balance"
+    ],
+    "max_bin_endpoint_reuse": 4,
+    "max_total_endpoint_reuse": 6,
+    "nuisance_strata_in_partition_objective": [
+      "navi_official_split",
+      "image_resolution",
+      "camera_model"
+    ],
+    "pair_csv_image_sizes": "read-from-source-image-and-checked-against-navi-annotation",
+    "partition_trials_per_object": 4096,
+    "selection_trials_per_object_family": 192,
+    "selection_uses_descriptor_or_evaluation_results": false
+  },
+  "audit": {
+    "camera_pair_balance": {
+      "definition": "unordered camera-model pair, compared per object and angular bin",
+      "max_object_bin_same_camera_absolute_difference": 5,
+      "max_object_bin_unordered_camera_pair_l1": 14,
+      "per_bin": {
+        "0-40": {
+          "correspondence_same_camera_pairs": 200,
+          "estimation_same_camera_pairs": 199,
+          "max_object_same_camera_absolute_difference": 5,
+          "max_object_same_camera_difference_object": "can_kernel_corn",
+          "max_object_unordered_camera_pair_l1": 14,
+          "max_object_unordered_camera_pair_l1_object": "water_gun_toy_green",
+          "sum_object_same_camera_absolute_difference": 9,
+          "sum_object_unordered_camera_pair_l1": 180
+        },
+        "40-80": {
+          "correspondence_same_camera_pairs": 186,
+          "estimation_same_camera_pairs": 186,
+          "max_object_same_camera_absolute_difference": 0,
+          "max_object_same_camera_difference_object": "well_with_leaf_roof_showpiece",
+          "max_object_unordered_camera_pair_l1": 12,
+          "max_object_unordered_camera_pair_l1_object": "water_gun_toy_green",
+          "sum_object_same_camera_absolute_difference": 0,
+          "sum_object_unordered_camera_pair_l1": 162
+        },
+        "80-120": {
+          "correspondence_same_camera_pairs": 185,
+          "estimation_same_camera_pairs": 185,
+          "max_object_same_camera_absolute_difference": 0,
+          "max_object_same_camera_difference_object": "well_with_leaf_roof_showpiece",
+          "max_object_unordered_camera_pair_l1": 10,
+          "max_object_unordered_camera_pair_l1_object": "school_bus",
+          "sum_object_same_camera_absolute_difference": 0,
+          "sum_object_unordered_camera_pair_l1": 162
+        }
+      },
+      "sum_object_bin_same_camera_absolute_difference": 9,
+      "sum_object_bin_unordered_camera_pair_l1": 504
+    },
+    "families": {
+      "correspondence": {
+        "0-40": {
+          "max_endpoint_reuse": 3,
+          "rows_reversed_from_source": 250,
+          "same_camera_pairs": 200,
+          "unique_images": 777
+        },
+        "40-80": {
+          "max_endpoint_reuse": 3,
+          "rows_reversed_from_source": 250,
+          "same_camera_pairs": 186,
+          "unique_images": 820
+        },
+        "80-120": {
+          "max_endpoint_reuse": 3,
+          "rows_reversed_from_source": 250,
+          "same_camera_pairs": 185,
+          "unique_images": 832
+        },
+        "max_endpoint_reuse_across_bins": 6,
+        "union_unique_images": 1082
+      },
+      "estimation": {
+        "0-40": {
+          "max_endpoint_reuse": 4,
+          "rows_reversed_from_source": 250,
+          "same_camera_pairs": 199,
+          "unique_images": 760
+        },
+        "40-80": {
+          "max_endpoint_reuse": 2,
+          "rows_reversed_from_source": 250,
+          "same_camera_pairs": 186,
+          "unique_images": 845
+        },
+        "80-120": {
+          "max_endpoint_reuse": 3,
+          "rows_reversed_from_source": 250,
+          "same_camera_pairs": 185,
+          "unique_images": 811
+        },
+        "max_endpoint_reuse_across_bins": 6,
+        "union_unique_images": 1086
+      }
+    },
+    "global_image_disjoint": true,
+    "image_counts": {
+      "correspondence": 1090,
+      "estimation": 1090
+    }
+  },
+  "bins_degrees": {
+    "0-40": [
+      0.0,
+      40.0
+    ],
+    "40-80": [
+      40.0,
+      80.0
+    ],
+    "80-120": [
+      80.0,
+      120.0
+    ]
+  },
+  "counts": {
+    "objects": 35,
+    "pairs_per_family_bin": 500,
+    "source_images": 2180
+  },
+  "files": {
+    "correspondence/pairs_wildset_0-40.csv": {
+      "bytes": 65554,
+      "sha256": "b21f8921cc5f62849339a5e43c740dcca8c22e8c838f20e9b01789233ecef879"
+    },
+    "correspondence/pairs_wildset_40-80.csv": {
+      "bytes": 65382,
+      "sha256": "ca6978c61f31b9d6eb11a1d38560252af305d3e576e6128b3345dc3e7bb72709"
+    },
+    "correspondence/pairs_wildset_80-120.csv": {
+      "bytes": 65583,
+      "sha256": "449ca1a9891914fb9b1c3eebe6c86944fd721604d0b16420e46dc6fe81457b84"
+    },
+    "estimation/pairs_wildset_0-40.csv": {
+      "bytes": 65556,
+      "sha256": "c3ce9f832376a3e7595b2e101909dd4bff27ef17f11e8e7b41f695d5631a4850"
+    },
+    "estimation/pairs_wildset_40-80.csv": {
+      "bytes": 65392,
+      "sha256": "cb63e4a05ad9eb43ad817dfdb879572e0392fc5677a00d9b84f604b1f681e782"
+    },
+    "estimation/pairs_wildset_80-120.csv": {
+      "bytes": 65583,
+      "sha256": "33b92b47b6147f2cf96795ba8d7cbdcbdb6f8ae53031db16a945a835b4d18234"
+    },
+    "image_partition.csv": {
+      "bytes": 236176,
+      "sha256": "212e09721e24768913f39539dc410186a26f65ec25102f6c15eedb9149ab158c"
+    },
+    "partition_capacity.csv": {
+      "bytes": 6816,
+      "sha256": "1dfeb1bbd565f15131be40e1618caaefc5b77e449d313f9577caeea2ba255acd"
+    }
+  },
+  "generator_sha256": "7d8a3153c28e99ea00fea009e37910429dc8d6153234acb00f33897d283ab804",
+  "image_metadata_sha256": "4f5ed40966efcb90150188c1eda7254e02f39413e1ec3cdc1d0914697a8d62ad",
+  "schema_version": 1,
+  "seed": 20260808,
+  "source": "pairs-wild_set.txt",
+  "source_sha256": "0da6831a3a0ac98cb6df5919548021253e56ab0f01a9ddec89ad5c56b4dc794a",
+  "split_version": "navi-wild-joint"
+}

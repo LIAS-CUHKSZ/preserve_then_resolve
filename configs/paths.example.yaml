@@ -1,0 +1,30 @@
+# Copy this file to paths.local.yaml and replace the placeholders. The local
+# file is ignored by Git. Relative paths are resolved from this file's folder.
+paths:
+  # Generic paths used by dino-m2m commands. DINO weights are always explicit;
+  # LightGlue may fetch its bundled SuperPoint weights when no local file/cache exists.
+  dino_source: ../third_party/dinov3
+  dino_weights: /path/to/dinov3_vitl16_pretrain_lvd1689m.pth
+  # Family-specific fallbacks are useful when switching --model.
+  dinov3_source: ../third_party/dinov3
+  dinov3_weights: /path/to/dinov3_vitl16_pretrain_lvd1689m.pth
+  dinov2_source: ../third_party/dinov2
+  dinov2_weights: /path/to/dinov2_vitl14_reg4_pretrain.pth
+  superpoint_weights: null
+  image_root: ../data/navi
+  pair_file: ../data/splits/navi/estimation/pairs_wildset_0-40.csv
+  dino_root: ../artifacts/dino_layer19
+  basis_root: ../artifacts/debiasing_basis
+  keypoint_cache_root: ../artifacts/superpoint
+  # Matching appends debias_svd<dim>/progressive_k<k> below this directory.
+  # Replace the uppercase components; for example:
+  # ../artifacts/matching_estimation_results/NAVI_wild/wildset_0-40/combined_interpolate_v3/layer19
+  association_root: ../artifacts/matching_estimation_results/ROOT_NAME/SUBSET_NAME/METHOD_PREFIX
+  correspondence_root: ../artifacts/evaluation/correspondence
+  estimation_root: ../artifacts/evaluation/estimation
+
+# Fill this with the value printed by `extract-keypoints` when using
+# LightGlue's bundled default checkpoint. Omit it when `superpoint_weights`
+# points to an explicit file; that file is content-hashed automatically.
+superpoint:
+  weights_id: null

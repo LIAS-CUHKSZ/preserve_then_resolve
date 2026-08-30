@@ -1,0 +1,60 @@
+# Practical DINOv3 parameters used by Q2/Q3. Section 2 and uncapped Q1 use the
+# explicit contracts in experiments/section2.yaml and experiments/q1.yaml.
+model:
+  name: dinov3_vitl16
+  layer: 19
+  patch_size: 16
+
+extraction:
+  batch_size: 4
+  long_edge: 1024
+  compile_model: false
+
+resize:
+  downscale_only: false
+
+superpoint:
+  max_num_keypoints: 2048
+  long_edge: 1024
+  # Cache-only runs must set this to the weights_id printed by
+  # `extract-keypoints` when using LightGlue's bundled default checkpoint.
+  weights_id: null
+
+matching:
+  debias_ranks: [200]
+  max_k: [1, 5]
+  association_upperbound: 2048
+  basis_filename_template: dinov3_vitl16_{height}x{width}_basis.pt
+
+# The legacy experiments resized ordinary RGB datasets to the configured long
+# edge, including upscaling. Small thermal frames in METU were downscaled only.
+dataset_overrides:
+  METU-CC:
+    resize:
+      downscale_only: true
+  METU-CS:
+    resize:
+      downscale_only: true
+
+gms:
+  threshold_factor: 4.0
+  grid_size: 20
+  auto_mask: true
+  # These two searches were enabled in the retained paper runs.  Keep this
+  # tracked protocol in sync with run_pose_gms_selection.py and its manifests.
+  with_scale: true
+  with_rotation: true
+
+loransac:
+  ransac_mode: HCM_MC
+  q_ub: 0.3
+  m2m_delta: 0.01
+  top_n_candidates: 100
+  # Progressive MKNN retains up to 2048 associations; the paper's pose
+  # experiments pass at most the first 1024 of them to robust estimation.
+  max_matching_num: 1024
+  max_error_px: 1.0
+  min_iterations: 1000
+  max_iterations: 100000
+  success_prob: 0.9999
+  ransac_times: 1

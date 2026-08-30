@@ -1,0 +1,8 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(Eigen3 3.4 REQUIRED NO_MODULE)
+find_dependency(PoseLib CONFIG REQUIRED)
+
+include("${CMAKE_CURRENT_LIST_DIR}/DinoM2MLORansacTargets.cmake")
+check_required_components(DinoM2MLORansac)

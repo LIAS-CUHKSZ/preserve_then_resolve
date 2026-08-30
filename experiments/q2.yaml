@@ -1,0 +1,25 @@
+experiment: q2_estimator_comparison
+paper_scope: Q2, Figure 6, and Table 1
+representation:
+  model: dinov3_vitl16
+  weights_sha256: 8aa4cbddda325040fc78db2c272754af6ebe8ff2c55f6ec4f1964d8890f66035
+  layer: 19
+  positional_debias_rank: 200
+association:
+  progressive_k: 5
+  association_upperbound: 2048
+gms:
+  threshold_factor: 4.0
+  grid_size: 20
+  auto_mask: true
+  with_scale: true
+  with_rotation: true
+estimation:
+  pipelines: [gms:4:20:CM, gms:4:20:HCM, gms:4:20:MCM, gms:4:20:HCM_MC]
+  max_matching_num: 1024
+  q_ub: 0.3
+  m2m_delta: 0.01
+  max_error_px: 1.0
+  min_iterations: 1000
+  max_iterations: 100000
+  seeds: [0, 1, 2, 3, 4]

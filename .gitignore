@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# CMake and compiled outputs
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+*.o
+*.a
+*.so
+
+# Local configuration
+configs/paths.local.yaml
+.env
+.env.*
+
+# Datasets, weights, and generated artifacts
+datasets/
+data/models/
+data/navi/
+data/scannet/
+data/megadepth/
+data/METU_VisTIR/
+data/raw/
+data/datasets/
+artifacts/
+results/
+outputs/
+matching_estimation_results/
+weights/
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+main_wacv_main.pdf
+
+# Editors and notebooks
+.DS_Store
+.idea/
+.vscode/
+.ipynb_checkpoints/
